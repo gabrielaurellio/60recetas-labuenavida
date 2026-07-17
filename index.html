@@ -9,6 +9,9 @@
   <meta property="og:description" content="+4.200 mujeres ya transformaron su semana con este método.">
   <meta property="og:type" content="website">
 
+  <!-- LCP: preload da imagem hero antes de qualquer bloqueio -->
+  <link rel="preload" as="image" fetchpriority="high" href="mockup-hero.webp">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -80,11 +83,13 @@
     .btn::before {
       content: '';
       position: absolute;
-      top: 0; left: -120%; width: 60%; height: 100%;
+      top: 0; left: 0; width: 60%; height: 100%;
       background: linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+      transform: translateX(-200%);
       animation: shine 3s ease-in-out infinite;
+      will-change: transform;
     }
-    @keyframes shine { 0%{left:-120%}100%{left:220%} }
+    @keyframes shine { 0%{transform:translateX(-200%)} 100%{transform:translateX(367%)} }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(22,128,60,.45); }
     .btn small { display: block; font-size: 12px; font-weight: 500; opacity: .85; margin-top: 4px; }
 
@@ -1012,8 +1017,8 @@
 
   <!-- LOGO PRODUTO -->
   <div class="logo-hero">
-    <img src="Nova logo Ensaladas EPS.png" alt="Ensaladas en Frasco + Salsas Caseras">
-    <img src="Ensalada Mockup 01.png" alt="Ensaladas en Frasco — Mockup do produto" class="logo-mockup">
+    <img src="nova-logo.webp" alt="Ensaladas en Frasco + Salsas Caseras" width="520" height="472">
+    <img src="mockup-hero.webp" alt="Ensaladas en Frasco — Mockup do produto" class="logo-mockup" width="780" height="425" fetchpriority="high">
   </div>
 
   <div class="hero-cta">
@@ -1051,7 +1056,7 @@
     </ul>
 
     <div class="pote-img-wrap">
-      <img src="ensaladas-pote-es.png" alt="Ensaladas en frasco listas en la heladera — 7 días sin marchitarse" loading="lazy">
+      <img src="ensaladas-pote.webp" alt="Ensaladas en frasco listas en la heladera — 7 días sin marchitarse" width="640" height="640" loading="lazy">
     </div>
 
     <a href="#preco"
@@ -1080,10 +1085,7 @@
     <!-- CARD 1 -->
     <div class="inclui-card">
       <span class="inclui-card-badge">Material 01</span>
-      <img class="inclui-card-img"
-           src="Alta entregáveis/1 - Las Recetas (60 Ensaladas).png"
-           alt="Las 60 Recetas de Ensaladas en Frasco"
-           loading="lazy">
+      <img class="inclui-card-img" src="Alta entregáveis/alta-1.webp" alt="Las 60 Recetas de Ensaladas en Frasco" width="620" height="346" loading="lazy">
       <div class="inclui-card-body">
         <h3 class="inclui-card-name">Las 60 Recetas de<br>Ensaladas en Frasco</h3>
         <p class="inclui-card-desc">Desde la más simple hasta la más gourmet. Cada receta con fotos, ingredientes, info nutricional y el aderezo ideal para acompañarla.</p>
@@ -1102,10 +1104,7 @@
     <!-- CARD 2 -->
     <div class="inclui-card">
       <span class="inclui-card-badge">Material 02</span>
-      <img class="inclui-card-img"
-           src="Alta entregáveis/2 - El Método (El Secreto de las Capas™).png"
-           alt="El Secreto de las Capas — El Método"
-           loading="lazy">
+      <img class="inclui-card-img" src="Alta entregáveis/alta-2.webp" alt="El Secreto de las Capas — El Método" width="620" height="346" loading="lazy">
       <div class="inclui-card-body">
         <h3 class="inclui-card-name">El Secreto de las Capas™</h3>
         <p class="inclui-card-desc">El método exacto que mantiene tu ensalada fresca, crocante y apetitosa hasta 7 días después de prepararla. El orden de las capas lo cambia todo.</p>
@@ -1124,10 +1123,7 @@
     <!-- CARD 3 -->
     <div class="inclui-card">
       <span class="inclui-card-badge">Material 03</span>
-      <img class="inclui-card-img"
-           src="Alta entregáveis/3 - Los Aderezos (Salsas Irresistibles).png"
-           alt="Salsas Caseras — +20 Recetas"
-           loading="lazy">
+      <img class="inclui-card-img" src="Alta entregáveis/alta-3.webp" alt="Salsas Caseras — +20 Recetas" width="620" height="346" loading="lazy">
       <div class="inclui-card-body">
         <h3 class="inclui-card-name">Salsas Caseras</h3>
         <p class="inclui-card-desc">+20 recetas de salsas que transforman cualquier ensalada aburrida en algo que quieres comer todos los días — con ingredientes de cualquier supermercado.</p>
@@ -1195,7 +1191,7 @@
 
       <!-- BONO 1 -->
       <div class="bonus-card">
-        <img class="bonus-card-img" src="Bonusss/bonus-1.webp" alt="20 Smoothies Detox" loading="lazy">
+        <img class="bonus-card-img" src="Bonusss/bonus-1.webp" alt="20 Smoothies Detox" width="600" height="400" loading="lazy">
         <div class="bonus-card-body">
           <p class="bonus-num">🎁 Bono #1</p>
           <h3 class="bonus-name">20 Smoothies Detox para Empezar la Mañana</h3>
@@ -1209,7 +1205,7 @@
 
       <!-- BONO 2 -->
       <div class="bonus-card">
-        <img class="bonus-card-img" src="Bonusss/bonus-2.webp" alt="5 Shots Matinales" loading="lazy">
+        <img class="bonus-card-img" src="Bonusss/bonus-2.webp" alt="5 Shots Matinales" width="600" height="400" loading="lazy">
         <div class="bonus-card-body">
           <p class="bonus-num">🎁 Bono #2</p>
           <h3 class="bonus-name">5 Shots Matinales que Cambian tu Energía</h3>
@@ -1223,7 +1219,7 @@
 
       <!-- BONO 3 -->
       <div class="bonus-card">
-        <img class="bonus-card-img" src="Bonusss/bonus-3.webp" alt="15 Aguas Saborizadas" loading="lazy">
+        <img class="bonus-card-img" src="Bonusss/bonus-3.webp" alt="15 Aguas Saborizadas" width="600" height="400" loading="lazy">
         <div class="bonus-card-body">
           <p class="bonus-num">🎁 Bono #3</p>
           <h3 class="bonus-name">15 Aguas Saborizadas para Toda la Semana</h3>
@@ -1241,7 +1237,7 @@
           <span class="super-badge-top">⭐ Súper Bono Exclusivo</span>
         </div>
         <span class="super-badge-gratis">🎁 Súper Bono — Gratis</span>
-        <img class="bonus-card-img" src="Bonusss/super-bonus.webp" alt="El Protocolo Domingo + Plan 4 Semanas" loading="lazy">
+        <img class="bonus-card-img" src="Bonusss/super-bonus.webp" alt="El Protocolo Domingo + Plan 4 Semanas" width="600" height="400" loading="lazy">
         <div class="bonus-card-body">
           <p class="bonus-num">⭐ Súper Bono</p>
           <h3 class="bonus-name">El Protocolo Domingo™<br>+ Plan de Alimentación de 4 Semanas</h3>
@@ -1318,62 +1314,62 @@
   <!-- Carrossel linha 1 — vai pra esquerda -->
   <div class="ps-carousel-wrap">
     <div class="ps-carousel ps-left">
-      <img src="Depoimentos final da página/1.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/2.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/3.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/4.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/5.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/6.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/7.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/8.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/9.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/10.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/11.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/12.png" alt="Testimonio" loading="lazy">
+      <img src="Depoimentos final da página/1.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/2.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/3.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/4.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/5.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/6.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/7.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/8.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/9.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/10.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/11.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/12.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
       <!-- duplicado para loop infinito -->
-      <img src="Depoimentos final da página/1.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/2.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/3.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/4.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/5.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/6.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/7.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/8.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/9.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/10.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/11.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/12.png" alt="Testimonio" loading="lazy">
+      <img src="Depoimentos final da página/1.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/2.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/3.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/4.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/5.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/6.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/7.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/8.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/9.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/10.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/11.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/12.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
     </div>
   </div>
 
   <!-- Carrossel linha 2 — vai pra direita (ordem invertida) -->
   <div class="ps-carousel-wrap">
     <div class="ps-carousel ps-right">
-      <img src="Depoimentos final da página/12.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/11.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/10.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/9.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/8.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/7.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/6.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/5.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/4.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/3.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/2.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/1.png"  alt="Testimonio" loading="lazy">
+      <img src="Depoimentos final da página/12.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/11.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/10.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/9.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/8.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/7.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/6.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/5.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/4.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/3.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/2.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/1.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
       <!-- duplicado para loop infinito -->
-      <img src="Depoimentos final da página/12.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/11.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/10.png" alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/9.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/8.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/7.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/6.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/5.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/4.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/3.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/2.png"  alt="Testimonio" loading="lazy">
-      <img src="Depoimentos final da página/1.png"  alt="Testimonio" loading="lazy">
+      <img src="Depoimentos final da página/12.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/11.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/10.webp"  alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/9.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/8.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/7.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/6.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/5.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/4.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/3.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/2.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
+      <img src="Depoimentos final da página/1.webp"   alt="Testimonio" width="180" height="166" loading="lazy">
     </div>
   </div>
 
@@ -1418,9 +1414,7 @@
 
       <!-- Super Mockup -->
       <div class="oferta-mockup">
-        <img src="Super Mockup.png"
-             alt="Kit completo — Ensaladas en Frasco + Salsas Caseras + Bonos"
-             onerror="this.src='mockup-produto.png'">
+        <img src="super-mockup.webp" alt="Kit completo — Ensaladas en Frasco + Salsas Caseras + Bonos" width="480" height="268" loading="lazy">
       </div>
 
       <!-- Stack list -->
