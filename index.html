@@ -12,9 +12,11 @@
   <!-- LCP: preload da imagem hero antes de qualquer bloqueio -->
   <link rel="preload" as="image" fetchpriority="high" href="mockup-hero.webp">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Poppins self-hosted — mesmos arquivos do Google Fonts CDN -->
+  <link rel="preload" href="fonts/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/pxiByp8kv8JHgFVrLBT5Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
 
   <!-- VTurb Speed Optimization -->
   <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
@@ -842,11 +844,11 @@
     /* CTA oferta — efeito pulso */
     @keyframes btnPulse {
       0%, 100% {
-        box-shadow: 0 8px 32px rgba(234,179,8,.35), 0 0 0 0 rgba(234,179,8,.4);
+        filter: drop-shadow(0 8px 32px rgba(234,179,8,.35));
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 10px 40px rgba(234,179,8,.55), 0 0 0 8px rgba(234,179,8,.0);
+        filter: drop-shadow(0 10px 40px rgba(234,179,8,.55));
         transform: scale(1.018);
       }
     }
@@ -868,7 +870,7 @@
     .btn-oferta:hover {
       animation: none;
       transform: translateY(-2px);
-      box-shadow: 0 14px 44px rgba(234,179,8,.6);
+      filter: drop-shadow(0 14px 44px rgba(234,179,8,.6));
     }
     .btn-oferta small { display: block; font-size: 13px; font-weight: 700; opacity: .8; margin-top: 6px; letter-spacing: 0; text-transform: none; }
 
